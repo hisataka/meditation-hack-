@@ -131,7 +131,7 @@ public class TwitterController {
 
 //      Ranking ranking = new Ranking();
 //      ranking.setUsernames(
-        List<String> temp = (List<String>)entityManager.createNativeQuery(sql).getResultList());
+        List<String> temp = (List<String>)entityManager.createNativeQuery(sql).getResultList();
         List<Ranking> rs = new ArrayList<Ranking>();
         for(String t: temp) {
           Ranking r = new Ranking();
