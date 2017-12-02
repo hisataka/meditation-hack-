@@ -132,7 +132,7 @@ public class TwitterController {
 
 
      Gson g = new Gson();
-     return g.toJson(list);
+     return g.toJson(results);
     } catch(Exception e) {
       return "false";
     }
