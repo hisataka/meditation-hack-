@@ -18,6 +18,7 @@ import com.form.TwitterForm;
 import com.logic.TwitterLogic;
 import com.repository.MediRepository;
 import com.entity.Medi;
+import com.google.gson.Gson;
 
 @Controller
 //@SessionAttributes("scopedTarget.auth")
@@ -45,6 +46,8 @@ public class TwitterController {
 	@ResponseBody
 	public String singlefav(@ModelAttribute TwitterForm form, Model model) {
      List<Medi> list = mediRepository.findAll();
-		return list.get(0).getUsername();
+     
+     Gson g = new Gson();
+    return g.toJson(list);
 	}
 }
