@@ -16,8 +16,8 @@ import java.util.HashMap;
 
 import com.form.TwitterForm;
 import com.logic.TwitterLogic;
-import com.repository.SystemValueRepository;
-import com.entity.SystemValue;
+import com.repository.MediRepository;
+import com.entity.Medi;
 
 @Controller
 //@SessionAttributes("scopedTarget.auth")
@@ -26,7 +26,7 @@ public class TwitterController {
   TwitterLogic twitterLogic;
 
   @Autowired
-  SystemValueRepository systemValueRepository;
+  MediRepository mediRepository;
 
   @ModelAttribute
   TwitterForm setUpForm() {
@@ -44,6 +44,7 @@ public class TwitterController {
   @RequestMapping(value="/service")
 	@ResponseBody
 	public String singlefav(@ModelAttribute TwitterForm form, Model model) {
-		return form.getTest();
+     List<Medi> list = mediRepository.findAll();
+		return list.get(0).getUsername();
 	}
 }

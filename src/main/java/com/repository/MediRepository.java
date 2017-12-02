@@ -2,9 +2,9 @@ package com.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.entity.SystemValue;
+import com.entity.Medi;
 import java.util.List;
 
-public interface SystemValueRepository extends JpaRepository<SystemValue, Long> {
+public interface MediRepository extends JpaRepository<Medi, Long> {
   public List<SystemValue> findByKey(String key); 
 }
