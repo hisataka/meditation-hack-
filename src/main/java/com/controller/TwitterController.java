@@ -20,6 +20,8 @@ import com.repository.MediRepository;
 import com.entity.Medi;
 import com.google.gson.Gson;
 
+import javax.persistence.EntityManager;
+
 @Controller
 //@SessionAttributes("scopedTarget.auth")
 public class TwitterController {
