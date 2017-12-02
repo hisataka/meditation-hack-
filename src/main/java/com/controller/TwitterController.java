@@ -50,6 +50,7 @@ public class TwitterController {
       int timecount = Integer.parseInt(form.getTimecount());
       medi.setTimecount(timecount);
     }
+    System.out.println(form.getPoslatf());
     if (form.getPoslatf() != "") {
       double poslatf = Double.parseDouble(form.getPoslatf());
       medi.setPoslatf(poslatf);
