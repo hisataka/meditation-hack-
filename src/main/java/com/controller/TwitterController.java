@@ -10,16 +10,10 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.ui.Model;
 
-import twitter4j.*;
-import twitter4j.conf.*;
-import oauth.signpost.basic.*;
-import oauth.signpost.http.HttpParameters;
-
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
-import com.model.Auth;
 import com.form.TwitterForm;
 import com.logic.TwitterLogic;
 import com.repository.SystemValueRepository;
