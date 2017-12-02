@@ -8,5 +8,5 @@ import lombok.Setter;
 public class Ranking {
   @Getter
   @Setter
-  private String username;
+  private List<String> usernames;
 }
