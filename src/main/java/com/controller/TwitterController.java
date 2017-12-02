@@ -28,7 +28,6 @@ import java.util.Date;
 
 
 @Controller
-//@SessionAttributes("scopedTarget.auth")
 public class TwitterController {
   @Autowired
   TwitterLogic twitterLogic;
@@ -53,13 +52,14 @@ public class TwitterController {
 
   @RequestMapping(value="/updateTime")
 	@ResponseBody
-	public String singlefav(@ModelAttribute TwitterForm form, Model model) {
+	public String updateTime(@ModelAttribute TwitterForm form, Model model) {
     try {
     Medi medi = new Medi();
     medi.setUsername(form.getUsername());
     if (form.getTimecount() != null && form.getTimecount() != "") {
       int timecount = Integer.parseInt(form.getTimecount());
       medi.setTimecount(timecount);
+      medi.setPoint(timecount);
     }
     if (form.getPoslatf() != null && form.getPoslatf() != "") {
       double poslatf = Double.parseDouble(form.getPoslatf());
@@ -105,14 +105,47 @@ public class TwitterController {
 
     mediRepository.save(medi);
 
-     List<Medi> list = mediRepository.findAll();
+//     List<Medi> list = mediRepository.findAll();
      
 //    return list.get(0).getUsername();
 
-     Gson g = new Gson();
-     return g.toJson(list);
+//     Gson g = new Gson();
+//     return g.toJson(list);
+      return "true";
     } catch(Exception e) {
       return "false";
     }
 	}
+
+
+/*
+  @RequestMapping(value="/getRankingList")
+	@ResponseBody
+	public String getRankingList(@ModelAttribute TwitterForm form, Model model) {
+    try {
+      int counts = Integer.parseInt(form.getCounts());
+
+      List<String> results entityManager.createNamedQuery(
+        "select username from (select row_number() over (order by point desc) rank, username from medi) A where rank <= 5;", 
+        String.class).getResultList();
+
+
+
+
+    medi.setSeq(results);
+
+    mediRepository.save(medi);
+
+//     List<Medi> list = mediRepository.findAll();
+     
+//    return list.get(0).getUsername();
+
+//     Gson g = new Gson();
+//     return g.toJson(list);
+      return "true";
+    } catch(Exception e) {
+      return "false";
+    }
+	}
+*/
 }

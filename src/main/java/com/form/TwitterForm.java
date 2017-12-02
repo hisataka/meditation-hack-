@@ -44,4 +44,8 @@ public class TwitterForm implements Serializable {
   @Getter
   @Setter
   private String timecount;
+
+  @Getter
+  @Setter
+  private String counts;
 }
