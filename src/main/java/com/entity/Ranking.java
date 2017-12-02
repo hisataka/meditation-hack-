@@ -9,5 +9,7 @@ import lombok.Setter;
 public class Ranking {
   @Getter
   @Setter
-  private List<String> usernames;
+  private String usernames;
 }
+
+  <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1VpBezAnqb8rW8ebGZImDHjfVhCFERTwB" width="640" height="480"></iframe>

@@ -129,11 +129,18 @@ public class TwitterController {
       String sql = "select username from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where rank <= ";
       sql += counts;
 
-      Ranking ranking = new Ranking();
-      ranking.setUsernames((List<String>)entityManager.createNativeQuery(sql).getResultList());
+//      Ranking ranking = new Ranking();
+//      ranking.setUsernames(
+        List<String> temp = (List<String>)entityManager.createNativeQuery(sql).getResultList());
+        List<Ranking> rs = new ArrayList<Ranking>();
+        for(String t: temp) {
+          Ranking r = new Ranking();
+          r.setUsername(t);
+          rs.add(r);
+        }
 
      Gson g = new Gson();
-     return g.toJson(ranking);
+     return g.toJson(rs);
 //    } catch(Exception e) {
  //     return "false";
   //  }
