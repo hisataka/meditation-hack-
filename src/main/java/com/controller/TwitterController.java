@@ -136,4 +136,21 @@ public class TwitterController {
       return "false";
     }
 	}
+
+
+  @RequestMapping(value="/getRanking")
+	@ResponseBody
+	public String getRankingList(@ModelAttribute TwitterForm form, Model model) {
+    try {
+
+      String sql = "select rank from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where username = ";
+      sql += form.getUsername();
+
+      Long results = (Long)entityManager.createNativeQuery(sql).getSingleResult();
+
+     return results;
+    } catch(Exception e) {
+      return "false";
+    }
+	}
 }
