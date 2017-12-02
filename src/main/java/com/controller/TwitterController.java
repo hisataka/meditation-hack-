@@ -21,6 +21,7 @@ import com.entity.Medi;
 import com.google.gson.Gson;
 
 import javax.persistence.EntityManager;
+import java.math.BigInteger;
 
 @Controller
 //@SessionAttributes("scopedTarget.auth")
@@ -60,7 +61,7 @@ public class TwitterController {
       medi.setPoslatf(poslatf);
     }
 
-      Integer results = (Integer)entityManager.createNativeQuery("select nextval('medi_seq')").getSingleResult();
+      BigInteger results = (Integer)entityManager.createNativeQuery("select nextval('medi_seq')").getSingleResult();
 
     medi.setSeq(results);
 

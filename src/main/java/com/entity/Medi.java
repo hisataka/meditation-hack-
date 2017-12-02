@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import java.util.Date;
 
+import java.math.BigInteger;
+
 @Entity
 @Table(name="medi")
 public class Medi {
@@ -14,7 +16,7 @@ public class Medi {
   @Column(name="seq")
   @Getter
   @Setter
-  private long seq;
+  private BigInteger seq;
 
   @Column(name="username")
   @Getter
