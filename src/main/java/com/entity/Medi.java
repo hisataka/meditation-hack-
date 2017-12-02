@@ -3,73 +3,62 @@ package com.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
 @Entity
+@Table(name="medi")
+@IdClass(value=MediKey.class)
 public class Medi {
-//  @Id
+
+  @Id
+  @Column(name="username")
+  @Getter
+  @Setter
   private String username;
+
+  @Id
+  @Column(name="seq")
+  @Getter
+  @Setter
   private long seq;
+
+  @Column(name="poslatf")
+  @Getter
+  @Setter
   private double poslatf;
+
+  @Column(name="poslonf")
+  @Getter
+  @Setter
   private double poslonf;
+
+  @Column(name="poslatt")
+  @Getter
+  @Setter
   private double poslatt;
+
+  @Column(name="poslont")
+  @Getter
+  @Setter
   private double poslont;
+
+  @Column(name="timef")
+  @Getter
+  @Setter
   private Date timef;
+
+  @Column(name="timet")
+  @Getter
+  @Setter
   private Date timet;
+
+  @Column(name="point")
+  @Getter
+  @Setter
   private int point;
 
-  public String getUsername() {
-    return username;
-  }
-  public void setUsername(String username) {
-    this.username = username;
-  }
-  public long getSeq() {
-    return seq;
-  }
-  public void setSeq(long seq) {
-    this.seq = seq;
-  }
-  public double getPoslatf() {
-    return poslatf;
-  }
-  public void setPoslatf(double poslatf) {
-    this.poslatf = poslatf;
-  }
-  public double getPoslonf() {
-    return poslonf;
-  }
-  public void setPoslonf(double poslonf) {
-    this.poslonf = poslonf;
-  }
-  public double getPoslatt() {
-    return poslatt;
-  }
-  public void setPoslatt(double poslatt) {
-    this.poslatt = poslatt;
-  }
-  public double getPoslont() {
-    return poslont;
-  }
-  public void setPoslont(double poslont) {
-    this.poslont = poslont;
-  }
-  public Date getTimef() {
-    return timef;
-  }
-  public void setTimef(Date timef) {
-    this.timef = timef;
-  }
-  public Date getTimet() {
-    return timet;
-  }
-  public void setTimet(Date timet) {
-    this.timet = timet;
-  }
-  public int getPoint() {
-    return point;
-  }
-  public void setPoint(int point) {
-    this.point = point;
-  }
+
 }
