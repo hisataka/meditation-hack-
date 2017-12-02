@@ -61,7 +61,7 @@ public class TwitterController {
       medi.setPoslatf(poslatf);
     }
 
-      BigInteger results = (Integer)entityManager.createNativeQuery("select nextval('medi_seq')").getSingleResult();
+      BigInteger results = (BigInteger)entityManager.createNativeQuery("select nextval('medi_seq')").getSingleResult();
 
     medi.setSeq(results);
 
