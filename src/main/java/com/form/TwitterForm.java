@@ -19,29 +19,29 @@ public class TwitterForm implements Serializable {
 
   @Getter
   @Setter
-  private double poslatf;
+  private String poslatf;
 
   @Getter
   @Setter
-  private double poslonf;
+  private String poslonf;
 
   @Getter
   @Setter
-  private double poslatt;
+  private String poslatt;
 
   @Getter
   @Setter
-  private double poslont;
+  private String poslont;
 
   @Getter
   @Setter
-  private Date timef;
+  private String timef;
 
   @Getter
   @Setter
-  private Date timet;
+  private String timet;
 
   @Getter
   @Setter
-  private int timecount;
+  private String timecount;
 }
