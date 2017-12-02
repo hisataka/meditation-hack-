@@ -6,5 +6,5 @@ import com.entity.Medi;
 import java.util.List;
 
 public interface MediRepository extends JpaRepository<Medi, Long> {
-  public List<SystemValue> findByKey(String key); 
+  public List<Medi> findByKey(String key); 
 }
