@@ -47,7 +47,9 @@ public class TwitterController {
 	public String singlefav(@ModelAttribute TwitterForm form, Model model) {
      List<Medi> list = mediRepository.findAll();
      
-     Gson g = new Gson();
-    return g.toJson(list);
+    return list.get(0).getUsername();
+
+//     Gson g = new Gson();
+ //   return g.toJson(list);
 	}
 }
