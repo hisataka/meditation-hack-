@@ -55,6 +55,7 @@ public class TwitterController {
       medi.setPoslatf(poslatf);
     }
 
+    medi.setSeq(mediRepository.getNextSeq());
     mediRepository.save(medi);
 
      List<Medi> list = mediRepository.findAll();
