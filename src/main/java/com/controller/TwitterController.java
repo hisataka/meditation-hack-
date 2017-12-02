@@ -143,8 +143,9 @@ public class TwitterController {
 	public String getRanking(@ModelAttribute TwitterForm form, Model model) {
     try {
 
-      String sql = "select rank from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where username = ";
+      String sql = "select rank from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where username = '";
       sql += form.getUsername();
+      sql += "' ";
 
       Long results = (Long)entityManager.createNativeQuery(sql).getSingleResult();
 
