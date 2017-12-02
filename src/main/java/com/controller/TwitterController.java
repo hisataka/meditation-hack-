@@ -147,9 +147,9 @@ public class TwitterController {
       sql += form.getUsername();
       sql += "' ";
 
-      Long results = (Long)entityManager.createNativeQuery(sql).getSingleResult();
+      BigInteger results = (BigInteger)entityManager.createNativeQuery(sql).getSingleResult();
 
-     return String.valueOf(results);
+     return results.toString();
 //    } catch(Exception e) {
  //     return "false";
   //  }
