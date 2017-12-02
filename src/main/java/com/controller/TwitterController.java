@@ -46,19 +46,11 @@ public class TwitterController {
 	public String singlefav(@ModelAttribute TwitterForm form, Model model) {
     Medi medi = new Medi();
     medi.setUsername(form.getUsername());
-    if (form.getTimecount() != "") {
+    if (form.getTimecount() != null && form.getTimecount() != "") {
       int timecount = Integer.parseInt(form.getTimecount());
       medi.setTimecount(timecount);
     }
-    System.out.println("***************");
-    System.out.println("***************");
-    System.out.println("***************");
-    System.out.println(form.getPoslatf());
-    System.out.println("***************");
-    System.out.println("***************");
-    System.out.println("***************");
-    System.out.println("***************");
-    if (form.getPoslatf() != "") {
+    if (form.getPoslatf() != null && form.getPoslatf() != "") {
       double poslatf = Double.parseDouble(form.getPoslatf());
       medi.setPoslatf(poslatf);
     }
