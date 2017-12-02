@@ -10,12 +10,33 @@ import javax.validation.constraints.Pattern;
 public class TwitterForm implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  private String test;
+  @Getter
+  @Setter
+  private String username;
 
-  public String getTest() {
-    return test;
-  }
-  public void setTest(String test) {
-    this.test = test;
-  }
+  @Getter
+  @Setter
+  private double poslatf;
+
+  @Getter
+  @Setter
+  private double poslonf;
+
+  @Getter
+  @Setter
+  private double poslatt;
+
+  @Getter
+  @Setter
+  private double poslont;
+
+  @Column(name="timef")
+  @Getter
+  @Setter
+  private Date timef;
+
+  @Column(name="timet")
+  @Getter
+  @Setter
+  private Date timet;
 }

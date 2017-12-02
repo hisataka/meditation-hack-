@@ -46,6 +46,11 @@ public class Medi {
   @Setter
   private Date timef;
 
+  @Column(name="timecount")
+  @Getter
+  @Setter
+  private int timecount;
+
   @Column(name="timet")
   @Getter
   @Setter
@@ -55,6 +60,4 @@ public class Medi {
   @Getter
   @Setter
   private int point;
-
-
 }

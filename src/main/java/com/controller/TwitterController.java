@@ -42,14 +42,14 @@ public class TwitterController {
     return "twitter/favbom";
   }
 
-  @RequestMapping(value="/service")
+  @RequestMapping(value="/updateTime")
 	@ResponseBody
 	public String singlefav(@ModelAttribute TwitterForm form, Model model) {
      List<Medi> list = mediRepository.findAll();
      
-    return list.get(0).getUsername();
+//    return list.get(0).getUsername();
 
-//     Gson g = new Gson();
- //   return g.toJson(list);
+     Gson g = new Gson();
+     return g.toJson(list);
 	}
 }
