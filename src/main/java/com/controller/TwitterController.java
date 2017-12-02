@@ -29,6 +29,9 @@ public class TwitterController {
   @Autowired
   MediRepository mediRepository;
 
+  @Autowired
+  EntityManager entityManager;
+
   @ModelAttribute
   TwitterForm setUpForm() {
     TwitterForm form = new TwitterForm();
@@ -55,7 +58,14 @@ public class TwitterController {
       medi.setPoslatf(poslatf);
     }
 
-    medi.setSeq(mediRepository.getNextSeq());
+      Integer results = entityManager.createNativeQuery("select nextval('medi_seq')", Integer.class)
+            .getSingleResult();
+
+    medi.setSeq(results);
+
+
+
+
     mediRepository.save(medi);
 
      List<Medi> list = mediRepository.findAll();
