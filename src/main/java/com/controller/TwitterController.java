@@ -19,6 +19,7 @@ import com.logic.TwitterLogic;
 import com.repository.MediRepository;
 import com.entity.Medi;
 import com.google.gson.Gson;
+import com.entity.Ranking;
 
 import javax.persistence.EntityManager;
 import java.math.BigInteger;
@@ -128,7 +129,7 @@ public class TwitterController {
       String sql = "select username from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where rank <= ";
       sql += counts;
 
-      List<String> results = (List<String>)entityManager.createNativeQuery(sql).getResultList();
+      List<Ranking> results = entityManager.createNativeQuery(sql, Ranking.class).getResultList();
 
      Gson g = new Gson();
      return g.toJson(results);
