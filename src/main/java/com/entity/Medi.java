@@ -9,20 +9,17 @@ import java.util.Date;
 
 @Entity
 @Table(name="medi")
-@IdClass(value=MediKey.class)
 public class Medi {
-
-  @Id
-  @Column(name="username")
-  @Getter
-  @Setter
-  private String username;
-
   @Id
   @Column(name="seq")
   @Getter
   @Setter
   private long seq;
+
+  @Column(name="username")
+  @Getter
+  @Setter
+  private String username;
 
   @Column(name="poslatf")
   @Getter
