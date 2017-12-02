@@ -122,7 +122,7 @@ public class TwitterController {
   @RequestMapping(value="/getRankingList")
 	@ResponseBody
 	public String getRankingList(@ModelAttribute TwitterForm form, Model model) {
-    try {
+//    try {
       int counts = Integer.parseInt(form.getCounts());
 
       String sql = "select rank, username, point from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where rank <= ";
@@ -133,8 +133,8 @@ public class TwitterController {
 
      Gson g = new Gson();
      return g.toJson(results);
-    } catch(Exception e) {
-      return "false";
-    }
+ //   } catch(Exception e) {
+   //   return "false";
+    //}
 	}
 }
