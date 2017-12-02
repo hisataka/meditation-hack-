@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 
 import javax.persistence.EntityManager;
 import java.math.BigInteger;
+import java.text.SimpleDateFormat;
 
 @Controller
 //@SessionAttributes("scopedTarget.auth")
@@ -50,6 +51,7 @@ public class TwitterController {
   @RequestMapping(value="/updateTime")
 	@ResponseBody
 	public String singlefav(@ModelAttribute TwitterForm form, Model model) {
+    try {
     Medi medi = new Medi();
     medi.setUsername(form.getUsername());
     if (form.getTimecount() != null && form.getTimecount() != "") {
@@ -61,12 +63,42 @@ public class TwitterController {
       medi.setPoslatf(poslatf);
     }
 
+
+    if (form.getPoslonf() != null && form.getPoslonf() != "") {
+      double poslonf = Double.parseDouble(form.getPoslonf());
+      medi.setPoslonf(poslonf);
+    }
+
+
+    if (form.getPoslatt() != null && form.getPoslatt() != "") {
+      double poslatt = Double.parseDouble(form.getPoslatt());
+      medi.setPoslatt(poslatt);
+    }
+
+
+
+    if (form.getPoslont() != null && form.getPoslont() != "") {
+      double poslont = Double.parseDouble(form.getPoslont());
+      medi.setPoslont(poslont);
+    }
+
+
+    if (form.getTimef() != null && form.getTimef() != "") {
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:dd");
+        Date timef = sdf.parse(form.getTimef());
+        medi.setTimef(timef);
+    }
+
+    if (form.getTimet() != null && form.getTimet() != "") {
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:dd");
+        Date timet = sdf.parse(form.getTimet());
+        medi.setTimet(timet);
+    }
+
+
       BigInteger results = (BigInteger)entityManager.createNativeQuery("select nextval('medi_seq')").getSingleResult();
 
     medi.setSeq(results);
-
-
-
 
     mediRepository.save(medi);
 
@@ -76,5 +108,8 @@ public class TwitterController {
 
      Gson g = new Gson();
      return g.toJson(list);
+    } catch(Exception e) {
+      return "false";
+    }
 	}
 }
