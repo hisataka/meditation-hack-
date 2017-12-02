@@ -128,7 +128,7 @@ public class TwitterController {
       String sql = "select rank, username, point from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where rank <= ";
       sql += counts;
 
-      List<Object> results = entityManager.createNamedQuery(sql).getResultList();
+      List<String> results = entityManager.createNamedQuery("select username from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where rank <= 5", String.class).getResultList();
 
 
      Gson g = new Gson();
