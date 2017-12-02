@@ -37,7 +37,6 @@ public class TwitterController {
 
   @RequestMapping("/")
   String index(@ModelAttribute TwitterForm form, Model model) {
-    form.setTest("test message");
     model.addAttribute("form", form);
     return "twitter/favbom";
   }
