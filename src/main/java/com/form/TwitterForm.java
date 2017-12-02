@@ -7,6 +7,9 @@ import java.util.List;
 
 import javax.validation.constraints.Pattern;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class TwitterForm implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -30,13 +33,15 @@ public class TwitterForm implements Serializable {
   @Setter
   private double poslont;
 
-  @Column(name="timef")
   @Getter
   @Setter
   private Date timef;
 
-  @Column(name="timet")
   @Getter
   @Setter
   private Date timet;
+
+  @Getter
+  @Setter
+  private int timecount;
 }
