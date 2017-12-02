@@ -5,9 +5,6 @@ import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
-import java.math.BigInteger;
 
 public class Ranking {
   @Getter
