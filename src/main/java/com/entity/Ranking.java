@@ -9,7 +9,7 @@ import java.util.Date;
 
 import java.math.BigInteger;
 
-public class Medi {
+public class Ranking {
   @Getter
   @Setter
   private String username;
