@@ -148,7 +148,7 @@ public class TwitterController {
 
       Long results = (Long)entityManager.createNativeQuery(sql).getSingleResult();
 
-     return results;
+     return String.valueOf(results);
     } catch(Exception e) {
       return "false";
     }
