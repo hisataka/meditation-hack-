@@ -45,7 +45,7 @@ public class TwitterController {
 	@ResponseBody
 	public String singlefav(@ModelAttribute TwitterForm form, Model model) {
     Medi medi = new Medi();
-    medi.setUserName(form.getUsername());
+    medi.setUsername(form.getUsername());
     if (!String.isEmpty(form.getTimecount())) {
       int timecount = Integer.parseInt(form.getTimecount());
       medi.setTimecount(timecount);
