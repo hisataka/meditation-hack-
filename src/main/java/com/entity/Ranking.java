@@ -13,5 +13,5 @@ public class Ranking {
 
   @Getter
   @Setter
-  private Integer point;
+  private String point;
 }
