@@ -182,7 +182,7 @@ public class TwitterController {
         for (int i = 0; i < temp.size(); i ++)  {
           Ranking r = new Ranking();
           r.setUsername(temp.get(i));
-          r.setPoint(Integer.parseInt(temp2.get(i)));
+          r.setPoint(temp2.get(i).toString());
           rs.add(r);
         }
 
