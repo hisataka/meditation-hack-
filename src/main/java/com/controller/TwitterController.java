@@ -171,7 +171,7 @@ public class TwitterController {
       String sql = "select username from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where rank <= ";
       sql += counts;
       String sql2 = "select point from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where rank <= ";
-      sql += counts;
+      sql2 += counts;
 
 //      Ranking ranking = new Ranking();
 //      ranking.setUsernames(
