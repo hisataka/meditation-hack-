@@ -172,7 +172,7 @@ public class TwitterController {
       sql += "' ";
 
       BigInteger results = (BigInteger)entityManager.createNativeQuery(sql).getSingleResult();
-return results;
+return results.toString();
 //     return results.toString();
   //  } catch(Exception e) {
 //      return "false";
