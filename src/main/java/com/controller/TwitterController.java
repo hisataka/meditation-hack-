@@ -161,4 +161,38 @@ public class TwitterController {
       return "false";
     }
 	}
+
+  @RequestMapping(value="/getRankingList2")
+	@ResponseBody
+	public String getRankingList2(@ModelAttribute TwitterForm form, Model model) {
+    //try {
+      int counts = Integer.parseInt(form.getCounts());
+
+      String sql = "select username from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where rank <= ";
+      sql += counts;
+      String sql2 = "select point from (select row_number() over(order by point desc) rank, username, point from (select username, max(point) as point from medi group by username) A order by point desc) A where rank <= ";
+      sql += counts;
+
+//      Ranking ranking = new Ranking();
+//      ranking.setUsernames(
+        List<String> temp = (List<String>)entityManager.createNativeQuery(sql).getResultList();
+        List<String> temp2 = (List<String>)entityManager.createNativeQuery(sql).getResultList();
+
+        List<Ranking> rs = new ArrayList<Ranking>();
+        for (int i = 0; i < temp.size(); i ++)  {
+          Ranking r = new Ranking();
+          r.setUsername(temp.get(i));
+          r.setPoint(temp2.get(i));
+          rs.add(r);
+        }
+
+
+     Gson g = new Gson();
+     return g.toJson(rs);
+//    } catch(Exception e) {
+ //     return "false";
+  //  }
+	}
+
+
 }

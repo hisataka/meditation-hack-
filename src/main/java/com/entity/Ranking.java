@@ -10,4 +10,8 @@ public class Ranking {
   @Getter
   @Setter
   private String username;
+
+  @Getter
+  @Setter
+  private String point;
 }
